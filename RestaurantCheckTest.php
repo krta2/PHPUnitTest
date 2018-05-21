@@ -1,7 +1,9 @@
 <?php
 require 'RestaurantCheck.php';
 
-class RestaurantCheckTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class RestaurantCheckTest extends TestCase
 {
     public function testWithTaxAndTip()
     {
