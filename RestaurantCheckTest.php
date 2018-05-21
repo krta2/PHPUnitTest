@@ -23,4 +23,15 @@ class RestaurantCheckTest extends TestCase
         $result = restaurant_check($meal, $tax, $tip);
         $this->assertEquals(110, $result);
     }
+    
+    public function testTipIsNotOnTax()
+    {
+        $meal = 100;
+        $tax = 10;
+        $tip = 10;
+        $checkWithTax = restaurant_check($meal, $tax, $tip);
+        $checkWithoutTax = restaurant_check($meal, 0, $tip);
+        $expectedTax = $meal * ($tax / 100);
+        $this->assertEquals($checkWithTax, $checkWithoutTax + $expectedTax);
+    }
 }
